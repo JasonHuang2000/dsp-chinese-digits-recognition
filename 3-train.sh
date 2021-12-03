@@ -4,8 +4,8 @@ dir=exp/mono
 feat=feat/train.39.cmvn.ark
 
 ### parameters that you can modify
-numiters=13                                   # Number of iterations of training
-maxiterinc=13                                 # Last iter to increase #Gauss on.
+numiters=10                                   # Number of iterations of training
+maxiterinc=10                                 # Last iter to increase #Gauss on.
 numgauss=400                                  # Initial num-Gauss (must be more than #states=3*phones).
 totgauss=4000                                 # Target #Gaussians.
 incgauss=$(( (totgauss-numgauss) / maxiterinc )) # per-iter increment for #Gauss
