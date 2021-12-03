@@ -4,12 +4,13 @@ dir=exp/mono
 feat=feat/train.39.cmvn.ark
 
 ### parameters that you can modify
-numiters=40                                   # Number of iterations of training
-maxiterinc=20                                 # Last iter to increase #Gauss on.
+numiters=13                                   # Number of iterations of training
+maxiterinc=13                                 # Last iter to increase #Gauss on.
 numgauss=400                                  # Initial num-Gauss (must be more than #states=3*phones).
 totgauss=4000                                 # Target #Gaussians.
 incgauss=$(( (totgauss-numgauss) / maxiterinc )) # per-iter increment for #Gauss
-realign_iters="1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 23 26 29 32 35 38"
+# realign_iters="1 2 3 4 5 6 7 8 9 10 12 14 16 18 20 23 26 29 32 35 38"
+realign_iters="1 2 3 4 5 6 8 10 12 15 18"
 scale_opts="--transition-scale=1.0 --acoustic-scale=0.1 --self-loop-scale=0.1"
 ###
 
@@ -136,7 +137,6 @@ while [ $iter -lt $numiters ]; do
 	fi
 	beam=10
 	iter=$[$iter+1];
-
 done
 echo "Training completed:"
 echo "     mdl = $dir/final.mdl"
